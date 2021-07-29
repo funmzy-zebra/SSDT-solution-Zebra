@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>SSDT_solution_Zebra</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{dc13f813-f7e5-4fc3-a9ad-5f92b062d32d}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>SSDT_solution_Zebra</RootNamespace>
+    <AssemblyName>SSDT_solution_Zebra</AssemblyName>
+    <ModelCollation>1033,CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <DefaultCollation>SQL_Latin1_General_CP1_CI_AS</DefaultCollation>
+    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Tables\" />
+    <Folder Include="Security\" />
+    <Folder Include="dbo\Stored Procedures\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Tables\ETLConfig_PiplineRun.sql" />
+    <Build Include="dbo\Tables\BQ1_POS_ExportDateRange.sql" />
+    <Build Include="dbo\Tables\BQ1_POS_Manual_MasterTables.sql" />
+    <Build Include="dbo\Tables\BQ1_POS_Manual_MasterTablesToAppend.sql" />
+    <Build Include="dbo\Tables\BQ1_POS_Manual_MasterTablesToExtract.sql" />
+    <Build Include="dbo\Tables\BQ1_POS_Manual_MasterTablesToExtract_ToAppend.sql" />
+    <Build Include="dbo\Tables\BQ1_POS_MasterTables.sql" />
+    <Build Include="dbo\Tables\BQ1_POS_Pipeline_MasterTablesToExtract.sql" />
+    <Build Include="dbo\Tables\Daily_Inventory_Header.sql" />
+    <Build Include="dbo\Tables\Daily_Inventory_Line.sql" />
+    <Build Include="dbo\Tables\Daily_InventoryLevel.sql" />
+    <Build Include="dbo\Tables\Daily_POS_HeaderReason_HeaderReasonRel.sql" />
+    <Build Include="dbo\Tables\Daily_POS_Headers.sql" />
+    <Build Include="dbo\Tables\Daily_POS_Lines.sql" />
+    <Build Include="dbo\Tables\Daily_POS_LoyaltyCards.sql" />
+    <Build Include="dbo\Tables\Daily_POS_PromotionalDiscount.sql" />
+    <Build Include="dbo\Tables\Daily_POS_Tenders.sql" />
+    <Build Include="dbo\Tables\Daily_SaleLevel.sql" />
+    <Build Include="dbo\Tables\ETL_Transfer_POS_ActiveDates.sql" />
+    <Build Include="dbo\Tables\FileKey.sql" />
+    <Build Include="dbo\Tables\InventoryDocumentHeader_stg_bq.sql" />
+    <Build Include="dbo\Tables\InventoryDocumentHeaderAttributes.sql" />
+    <Build Include="dbo\Tables\InventoryDocumentLine_stg_bq.sql" />
+    <Build Include="dbo\Tables\InventoryDocumentLineAttributes.sql" />
+    <Build Include="dbo\Tables\InventoryLevel_stg_bq.sql" />
+    <Build Include="dbo\Tables\InventoryLevelAttributes.sql" />
+    <Build Include="dbo\Tables\LOG_PiplineRun.sql" />
+    <Build Include="dbo\Tables\Master_Custom.sql" />
+    <Build Include="dbo\Tables\Master_InventoryDocumentType.sql" />
+    <Build Include="dbo\Tables\Master_Product.sql" />
+    <Build Include="dbo\Tables\Master_Resource.sql" />
+    <Build Include="dbo\Tables\Master_Site.sql" />
+    <Build Include="dbo\Tables\Master_Vendor.sql" />
+    <Build Include="dbo\Tables\MasterTables_ForNextGen.sql" />
+    <Build Include="dbo\Tables\nextgen_etl_log.sql" />
+    <Build Include="dbo\Tables\Pipeline_INV_MasterTablesToExtract.sql" />
+    <Build Include="dbo\Tables\Pipeline_InventoryDocumentHeaderAttributesPopulateQ.sql" />
+    <Build Include="dbo\Tables\Pipeline_InventoryDocumentLineAttributesPopulateQ.sql" />
+    <Build Include="dbo\Tables\Pipeline_InventoryLevelAttributesPopulateQ.sql" />
+    <Build Include="dbo\Tables\Pipeline_SaleLevelAttributesPopulateQ.sql" />
+    <Build Include="dbo\Tables\PipelineTransfer_History.sql" />
+    <Build Include="dbo\Tables\PiplineRun.sql" />
+    <Build Include="dbo\Tables\SaleLevel_stg_bq.sql" />
+    <Build Include="dbo\Tables\SaleLevelAttributes.sql" />
+    <Build Include="dbo\Tables\ZPA_Manual_UserAndCaseManagerTables.sql" />
+    <Build Include="dbo\Tables\ZPA_Manual_UserAndCaseManagerTablesToExtract.sql" />
+    <Build Include="Security\FLOW_oomolade.sql" />
+    <Build Include="Security\FLOW_oomolade_1.sql" />
+    <Build Include="Security\RoleMemberships.sql" />
+    <Build Include="dbo\Stored Procedures\sp_CS_TruncateFactTablesINV.sql" />
+    <Build Include="dbo\Stored Procedures\sp_CS_TruncateMasterTablesINV.sql" />
+    <Build Include="dbo\Stored Procedures\sp_CS_TruncateTablesAndDropIndexes.sql" />
+    <Build Include="dbo\Stored Procedures\sp_CS_Update_DAG_LastRun_To_ConfigTBL.sql" />
+    <Build Include="dbo\Stored Procedures\SP_DI_CS_ReturnMaxValueIDFromStaging.sql" />
+    <Build Include="dbo\Stored Procedures\Sp_DownloadFactAttributeFromProfitectDB.sql" />
+    <Build Include="dbo\Stored Procedures\sp_DownloadInventoryLevel.sql">
+      <QuotedIdentifier>Off</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Stored Procedures\sp_DownloadSaleLevel.sql">
+      <QuotedIdentifier>Off</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Stored Procedures\sp_EmailNotification.sql" />
+    <Build Include="dbo\Stored Procedures\sp_GetInventoryLevelLoopData.sql" />
+    <Build Include="dbo\Stored Procedures\sp_GetSaleLevelLoopData.sql" />
+    <Build Include="dbo\Stored Procedures\sp_INV_CS_LoadToDailyTableRangeDate.sql" />
+    <Build Include="dbo\Stored Procedures\sp_INV_CS_LoadUnknownDocTypes.sql" />
+    <Build Include="dbo\Stored Procedures\sp_INV_DownloadHeaders.sql">
+      <QuotedIdentifier>Off</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Stored Procedures\sp_INV_DownloadLines.sql" />
+    <Build Include="dbo\Stored Procedures\sp_INV_GetDocumentLoopData.sql" />
+    <Build Include="dbo\Stored Procedures\sp_nextgen_etl_log.sql" />
+    <Build Include="dbo\Stored Procedures\sp_nextgen_etl_run_cmd.sql" />
+    <Build Include="dbo\Stored Procedures\sp_POS_CS_CalculateKey_DocumentLine.sql" />
+    <Build Include="dbo\Stored Procedures\sp_PrepINVMasterTablesList.sql" />
+    <Build Include="dbo\Stored Procedures\sp_PipeLineConfig_Populate_ConfigTable.sql" />
+    <Build Include="dbo\Stored Procedures\BQ_BQ1_CalcMaxIDsMasterTablesToAppendAndDateRange.sql" />
+    <Build Include="dbo\Stored Procedures\BQ_BQ1_POS_FactDataExport_ETL.sql" />
+    <Build Include="dbo\Stored Procedures\BQ_BQ1_POS_MasterdataExport_ETL.sql" />
+    <Build Include="dbo\Stored Procedures\BQ_ExtractData_ETL_ByQuery.sql" />
+    <Build Include="dbo\Stored Procedures\BQ_ExtractTableByHeaderIDAndDate_ETL.sql" />
+    <Build Include="dbo\Stored Procedures\BQ_INV_MasterdataExport_ETL.sql" />
+    <Build Include="dbo\Stored Procedures\BQ_INV_PopulateInventoryHeaderAttributes.sql" />
+    <Build Include="dbo\Stored Procedures\BQ_INV_PopulateInventoryLevelAttributes.sql" />
+    <Build Include="dbo\Stored Procedures\BQ_INV_PopulateInventoryLineAttributes.sql" />
+    <Build Include="dbo\Stored Procedures\BQ_INV_PopulateSaleLevelAttributes.sql" />
+    <Build Include="dbo\Stored Procedures\BQ_LoadTable_ETL_ByQuery.sql" />
+    <Build Include="dbo\Stored Procedures\BQ_LoadTableToBucket_ETL.sql" />
+    <Build Include="dbo\Stored Procedures\BQ_LoadTableToBucket_ETL_ByQuery.sql" />
+    <Build Include="dbo\Stored Procedures\BQ_POS_NextGen_ETL.sql" />
+    <Build Include="dbo\Stored Procedures\BQ_POS_NextGen_ETL_onetime.sql" />
+    <Build Include="dbo\Stored Procedures\BQ_ZPA_UserAndCaseManager_ETL.sql" />
+    <Build Include="dbo\Stored Procedures\BQ1_Manual_AppenedTableByHeaderID_ETL.sql" />
+    <Build Include="dbo\Stored Procedures\BQ1_Manual_AppenedTableByHeaderIDAndDate_ETL.sql" />
+    <Build Include="dbo\Stored Procedures\BQ1_Manual_LoadTable_ETL.sql" />
+    <Build Include="dbo\Stored Procedures\BQ1_Manual_LoadTableByDate_ETL.sql" />
+    <Build Include="dbo\Stored Procedures\BQ1_Manual_MasterdataLoad_ETL.sql" />
+    <Build Include="dbo\Stored Procedures\BQ1_Manual_MasterdataLoadAppendByID_ETL.sql" />
+    <Build Include="dbo\Stored Procedures\BQ1_Manual_MasterdataLoadAppendByID_ETL_OLD.sql" />
+    <Build Include="dbo\Stored Procedures\BQ1_Manual_POS_MainDataLoad_ETLHistByDate.sql" />
+    <Build Include="dbo\Stored Procedures\BQ1_Manual_POS_MainDataLoad_ETLHistByDateHeaderIDAppened.sql" />
+    <Build Include="dbo\Stored Procedures\P_BulkInsert.sql" />
+    <Build Include="dbo\Stored Procedures\sp_BQ1_TriggerDag.sql" />
+    <Build Include="dbo\Stored Procedures\sp_CS_CreateIndexes.sql" />
+    <Build Include="dbo\Stored Procedures\sp_CS_DagRunTocomplete.sql" />
+    <Build Include="dbo\Stored Procedures\sp_CS_LoadFileKeyToProfitectDB.sql" />
+    <Build Include="dbo\Stored Procedures\sp_CS_PopulateDagRun.sql" />
+    <Build Include="dbo\Stored Procedures\sp_CS_TriggerDag.sql" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,3 @@
+﻿CREATE LOGIN [FLOW\oomolade]
+    FROM WINDOWS WITH DEFAULT_LANGUAGE = [us_english];
+

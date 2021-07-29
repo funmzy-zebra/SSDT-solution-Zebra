@@ -1,0 +1,73 @@
+﻿
+
+
+
+
+
+
+
+
+CREATE PROCEDURE [dbo].[BQ_ExtractData_ETL_ByQuery]
+/*** Description
+Retrieves data from the specified SQL Server table and uploads to the BigQuery equivalent
+
+Input Parameters
+ @sourceDB 		-- source SQL Server database 
+ @sourceTable 	-- source SQL Server table 
+ @localFolder 	-- local folder to place intermediary data file
+ @gcpFolder 	-- gcp folder to upload intermediary data file
+ @bigQueryDB 	-- destination BigQuery dataset
+ @bigQueryTable -- destination BigQuery table
+ @delimiter		-- delimiter to separate columns
+
+ Example
+ exec [BQ_LoadTable_ETL] 'ProfitectDB_QA', 'POSDocumentPromotionalDiscount', 
+'D:\Profitect\BigQuery\Upload', 'gs://bigquery_profitect/Upload', 
+'rnd-gcp:BQ_MUMIN', 'POSFactDiscount', '|';
+
+***/
+  
+(
+ --@sourceDB varchar(50), 
+ @destFileName varchar(50), 
+ @localFolder varchar(150), 
+-- @gcpFolder varchar(150), 
+ --@bigQueryDB varchar(150), 
+ --@bigQueryTable varchar(50), 
+ @delimiter varchar(10),
+ @query VARCHAR(1000)
+)
+as 
+BEGIN
+
+DECLARE @shell_cmd VARCHAR(1000);
+DECLARE @localPath VARCHAR(1000);
+DECLARE @gcpPath VARCHAR(1000);
+DECLARE @sql_bin VARCHAR(1000);
+
+SET @sql_bin = (SELECT [NvarcharValue] from  [NextGenETL].[dbo].[ETLConfig_PiplineRun] where [ConfigKey] = 'sql_bin');
+SET @shell_cmd = CONCAT('cd ',@sql_bin);
+EXEC sp_nextgen_etl_run_cmd 'c:';
+EXEC sp_nextgen_etl_run_cmd @shell_cmd;
+
+
+IF (RIGHT(@localFolder,1) = '/' OR RIGHT(@localFolder,1) = '\') 
+	SET @localPath = @localFolder;
+ELSE
+	SET @localPath = @localFolder + '\';
+
+
+
+
+SET @shell_cmd =  'bcp.exe "'+@query+'" queryout "' 
+				+ @localPath + @destFileName + '.csv" -c -t"' + @delimiter + '" -T';
+PRINT @shell_cmd;
+EXEC sp_nextgen_etl_run_cmd @shell_cmd;
+
+
+
+END
+
+
+
+
