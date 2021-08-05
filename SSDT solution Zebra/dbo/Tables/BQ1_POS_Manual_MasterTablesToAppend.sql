@@ -6,3 +6,6 @@
     [NextGenConfigKey] NVARCHAR (300) NULL
 );
 
+
+
+
