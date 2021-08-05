@@ -3,6 +3,7 @@
     [ID]                     INT           NULL,
     [BatchDate]              DATETIME      NULL, 
     [Test] INT NULL,
+    test2 int
 )     
    
 
