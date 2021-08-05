@@ -8,6 +8,7 @@
     [proc_name]  [sysname]      NULL,
     [cmd]        VARCHAR (8000) NULL,
     [is_error]   BIT            NULL,
-    [msg]        NVARCHAR (MAX) NULL
+    [msg]        NVARCHAR (MAX) NULL,
+    [test1] int
 );
 
