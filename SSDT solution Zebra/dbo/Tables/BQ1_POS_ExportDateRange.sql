@@ -3,7 +3,8 @@
     [ID]                     INT           NULL,
     [BatchDate]              DATETIME      NULL, 
     [Test] INT NULL,
-    test2 int
+    test2 int,
+    [ID2]                     INT           NULL
 )     
    
 
