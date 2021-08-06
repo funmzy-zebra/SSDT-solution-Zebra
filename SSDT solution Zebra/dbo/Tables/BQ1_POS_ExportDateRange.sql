@@ -4,8 +4,8 @@
     [BatchDate]              DATETIME      NULL, 
     [Test] INT NULL,
     test2 int
-)     
-   
+     [ID2]                     INT          NOT NULL,
+)        
 
 
 
